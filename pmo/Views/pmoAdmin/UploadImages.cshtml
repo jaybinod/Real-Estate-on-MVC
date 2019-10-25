@@ -1,0 +1,72 @@
+﻿@model pmo.Models.PropertyImageUpload
+
+@{
+    ViewBag.Title = "UploadImages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UploadImages</h2>
+
+@using (Html.BeginForm("UploadImages", "pmoAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        
+
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.PropertyID)
+            </div>*@
+        <div class="editor-field hidden">
+
+            @Html.EditorFor(model => model.PropertyID)
+            @Html.ValidationMessageFor(model => model.PropertyID)
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <legend>@Html.LabelFor(model => model.property): @Html.DisplayFor(model => model.property)</legend>
+                </div>
+        </div>
+
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.Label("Upload your image")
+                </div>
+
+
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.user_image_data, new { Type = "File" })
+                    @Html.ValidationMessageFor(model => model.user_image_data)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+                <div class="row">
+                    @foreach (pmo.Models.PropertyImage Image in pmo.Models.PropertyImage.GetImages(Model.PropertyID))
+                    {
+                        <div class="col-md-3">
+                            <img src="~/Images/PropertyImages/@Image.ImageName" class="img-thumbnail" />
+                            @Html.ActionLink("Delete", "DeleteImage", new { id=Image.ImageID,PropertyID=Model.PropertyID })
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "propertyList")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,121 @@
+﻿@model pmo.Models.ProjectMasterModel
+
+@{
+    ViewBag.Title = "ProjectEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ProjectEdit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <h2>Add new Project</h2><br />
+
+            </div>
+        </div>
+        <h3 class="text-danger">@ViewBag.Message  </h3>
+        @*<legend>ProjectMasterModel</legend>*@
+        <div class="row-15-15 hidden">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AllProjects[0].ProjectID)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AllProjects[0].ProjectID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AllProjects[0].ProjectID)
+                </div>
+            </div>
+        </div>
+
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AllProjects[0].ProjectName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AllProjects[0].ProjectName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AllProjects[0].ProjectName)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AllProjects[0].BuilderName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AllProjects[0].BuilderName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AllProjects[0].BuilderName)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AllProjects[0].LocationID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.AllProjects[0].LocationID, new SelectList(ViewBag.LocationList,"Value","Text",Model.AllProjects[0].LocationID), "(Select Project Lotation)", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AllProjects[0].LocationID, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AllProjects[0].totalBuilding)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AllProjects[0].totalBuilding, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AllProjects[0].totalBuilding)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AllProjects[0].LiftInEachBuilding)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AllProjects[0].LiftInEachBuilding, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AllProjects[0].LiftInEachBuilding)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.AllProjects[0].TotalFlatInProject)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AllProjects[0].TotalFlatInProject, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AllProjects[0].TotalFlatInProject)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <p>
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </p>
+            </div>
+        </div>
+
+    </fieldset>
+
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

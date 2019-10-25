@@ -1,0 +1,221 @@
+﻿@model pmo.Models.PropertyDetailsEdit
+
+@{
+    ViewBag.Title = "PropertyEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>PropertyEdit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PropertyDetailsAll</legend>
+        <div class="row-15-15">
+            <div class="col-md-12 text-center text-success">
+                <h3 class="text-success">@ViewBag.Message  </h3>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label label label-success">
+
+                    @Html.LabelFor(model => model.ViewStatus)
+                </div>
+                <div class="editor-field">
+                    @Html.CheckBoxFor(model => model.ViewStatus)
+                    </div>
+                </div>
+            </div>
+
+                    <div class="row-15-15 hidden">
+                        <div class="col-md-12">
+                            <div class="editor-label">
+                                @*@Html.LabelFor(model => model.PropertyID)*@
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.PropertyID)
+                                @Html.ValidationMessageFor(model => model.PropertyID)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-15-15">
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.PropertyType)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.PTID, new SelectList(ViewBag.PropertyTypeList, "Value", "Text", Model.PTID), "(Select Property)", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PTID)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.ProjectName)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.ProjectID, new SelectList(ViewBag.ProjectName, "Value", "Text", Model.ProjectID), "(Select Project)", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectID)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.SuperArea)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.SuperArea, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SuperArea)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-15-15">
+
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.CarpetArea)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.CarpetArea, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CarpetArea)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.Possession)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Possession, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Possession)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.Floor)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Floor, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Floor)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-15-15">
+
+
+                    </div>
+                    <div class="row-15-15">
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.CarParking)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.CarParking, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CarParking)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.FaceSide)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.FaceSide, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FaceSide)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.StartPrice)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.StartPrice, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.StartPrice)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-15-15">
+
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.Budget)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.BudgetID, new SelectList(ViewBag.BudgetList, "Value", "Text", Model.BudgetID), "(Select Budget Range)", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BudgetID)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.BedRooms)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.BedRooms, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BedRooms)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.BathRooms)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.BathRooms, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BathRooms)
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row-15-15">
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.Balconies)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Balconies, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Balconies)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="editor-label label label-success">
+                                @Html.LabelFor(model => model.StoreRooms)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.StoreRooms, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.StoreRooms)
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row-15-15">
+                        <div class="col-md-12">
+
+                            <p>
+                                <input type="submit" value="Save" />
+                            </p>
+                        </div>
+                    </div>
+
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "PropertyList")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

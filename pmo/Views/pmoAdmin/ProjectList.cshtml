@@ -1,0 +1,56 @@
+﻿@model pmo.Models.ProjectMasterModel
+
+@{
+    ViewBag.Title = "ListProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ListProject</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ProjectCreate", "pmoadmin", new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuilderName)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.Location)</th>
+        <th>@Html.DisplayNameFor(model => model.totalBuilding)</th>
+        <th>@Html.DisplayNameFor(model => model.LiftInEachBuilding)</th>
+        <th>@Html.DisplayNameFor(model => model.TotalFlatInProject)</th>
+    </tr>
+
+    @foreach (var item in Model.AllProjects)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuilderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalBuilding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiftInEachBuilding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFlatInProject)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "ProjectEdit", new { id = item.ProjectID }, new { @class = "btn btn-default" }) 
+                @*@Html.ActionLink("Images", "Details", new { id = item.ProjectID },new { @class = "btn btn-default" }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.ProjectID })*@
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="header-area">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    @*@Html.ActionLink("Administration Panel", "pmoadmin", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @*<li>@Html.ActionLink("Project", "ProjectList", "pmoAdmin")</li>*@
+                        @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
+                        @*<li>@Html.ActionLink("Property", "PropertyList", "pmoAdmin")</li>*@
+                    </ul>
+                    @*@Html.Partial("_LoginPartial")*@
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </header>
+    <div class="container-fluid body-content section-padding-50-0">
+        @*<div class="row bg-info">
+            <div class="col-md-12 text-center">
+                <h5 class="text-danger">For more Details call on below number or leave message. We will call you. ,<br />+91 8080005023 / +91 7977635250 </h5>
+            </div>
+        </div>*@
+        @*<div class="row">
+            <div class="col-md-12">
+<br />
+            </div>
+        </div>*@
+        
+        <div class="row">
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        </div>
+
+        </div>
+
+            <footer>
+                <div class="text-center navbar-inverse">
+                    <p>© Property Masters Office @DateTime.Now.Year. All rights reserved.<br />Website Designed & Developed by Romasoft</p>
+                </div>
+            </footer>
+
+
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+</body>
+</html>

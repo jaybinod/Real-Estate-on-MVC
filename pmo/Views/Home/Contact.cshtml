@@ -1,0 +1,125 @@
+﻿@model pmo.Models.ContactModel
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contact</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+@*        <legend>Contact</legend>*@
+        
+        <div class="row-15-15">
+            <div class="col-md-12 text-center">
+                <h3 class="text-danger">@ViewBag.Message  </h3>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+        </div>
+
+        <div class="row-15-15">
+            <div class="col-md-12">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.emailId)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.emailId, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.emailId)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.mobile)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.mobile, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.mobile)
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Property)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Property, ViewBag.PropertyTypeList as SelectList, "(Select Your Requirement)", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Property, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Location)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Location, ViewBag.LocationList as SelectList, "(Select Location)", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text_danger" })
+                </div>
+            </div>
+        </div>
+        @*<div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ProjectAge)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.ProjectAge, ViewBag.PropertyAgeList as SelectList, "(Select Property Age)", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProjectAge, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Budget)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Budget, ViewBag.BudgetList as SelectList, "Select your Budget", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Budget, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row-15-15">
+            <div class="col-md-12">
+                <br />
+                <p>
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </p>
+            </div>
+        </div>
+    </fieldset>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            @Html.ActionLink("Back to Property List", "Index")
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

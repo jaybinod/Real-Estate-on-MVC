@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "PropertyDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PropertyDetails</h2>
+
+<div class="row table-bordered">
+
+    <div class="col-12 col-md-4 col-xl-4 padding-top10">
+                        @*<img src="~/Images/PropertyImages/@ViewBag.PropertyID" alt="" />*@
+                    </div>
+
+       
+
+<div class="col-12 col-md-8 col-xl-8 padding-top10">
+    <div class="col-md-12 border-bottom">
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Bed Rooms: </b><br />@ViewBag.BedRooms
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Bath Rooms: </b><br />@ViewBag.BathRooms
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Balconies: </b><br />
+            @ViewBag.Balconies
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Store Rooms: </b><br />
+            @ViewBag.StoreRooms
+        </div>
+    </div><br />
+
+
+    <div class="col-md-12 border-bottom">
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Super Area:</b><br />
+            @ViewBag.SuperArea
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Carpet Area: </b><br />
+            @ViewBag.CarpetArea
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>FaceSide</b><br />
+            @ViewBag.FaceSide
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+
+        </div>
+    </div><br /><br />
+    <div class="col-md-12 border-bottom">
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Status</b><br />
+            @ViewBag.Status
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Property Type</b><br />
+            @ViewBag.PropertyType
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Floor</b><br />
+            @ViewBag.floor
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Car Parking</b><br />
+            @ViewBag.CarParking
+        </div>
+    </div><br /><br />
+    <div class="col-md-12 border-bottom">
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Society</b><br />
+            @ViewBag.ProjectName, @ViewBag.Location <br />by @ViewBag.Builder
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Total Building in Project</b><br />
+            @ViewBag.TotalBuilding
+        </div>
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Lift in each Building</b><br />
+            @ViewBag.LiftinEachBuilding
+        </div>
+
+        <div class="col-12 col-md-3 col-xl-3">
+            <b>Total Flat in Project</b><br />
+            @ViewBag.TotalFlatinProject
+        </div>
+
+    </div>
+</div>
+    </div>
+
+<div class="row-unlimitedColumn">
+    @*<div class="col-md-3"></div>*@
+    
+        @*<div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">*@
+        @foreach (pmo.Models.PropertyImage Image in pmo.Models.PropertyImage.GetImages(ViewBag.PropertyID))
+        {
+            <div class="col-md-4">
+                
+                    <img src="~/Images/PropertyImages/@Image.ImageName" class="img-thumbnail" />
+                </div>
+                }
+            </div>
+   
+
+
+
+    @*</div>
+    <div class="col-md-3"></div>
+    </div>*@
+@*<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">*@
+
+@*@foreach (var item in ViewData.Model)
+{
+    <div class="item">
+        <img src="~/Images/PropertyImages/@item["ImageName"]" />
+    </div>
+
+}*@
+    @*</div>
+</div>*@
+
+
+@*@foreach (pmo.Models.PropertyImage Image in pmo.Models.PropertyImage.GetImages(item["PropertyID"]))
+{
+    <div class="item @Image.Active">
+        <img src="~/Images/PropertyImages/@Image.ImageName" />
+    </div>
+}*@

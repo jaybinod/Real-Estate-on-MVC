@@ -1,0 +1,17 @@
+﻿body {
+}
+
+.border-bottom
+{
+    border-bottom:1px dotted #808080;
+    padding:10px;
+}
+
+.padding10
+{
+    padding:10px;
+}
+.padding-top10
+{
+    padding-top:10px;
+}

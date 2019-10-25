@@ -1,0 +1,100 @@
+﻿@model IEnumerable<pmo.Models.PropertyDetailsAll>
+
+@{
+    ViewBag.Title = "PropertyList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>PropertyList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "PropertyCreate")
+</p>
+<table class="table table-condensed">
+    <tr>
+        <th>View</th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyType)
+        </th>
+        <th>
+            Project
+        </th>
+        <th>Property Details</th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuperArea)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CarpetArea)
+        </th>*@
+        <th>
+            Other Details
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Possession)
+        </th>
+        
+        <th>Project Details
+        </th>
+        <th>@Html.DisplayNameFor(model => model.StartPrice)</th>
+        <th>@Html.DisplayNameFor(model => model.Budget)</th>
+        <th>@Html.DisplayNameFor(model => model.CreatedDate)</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ViewStatus)</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName), @Html.DisplayFor(modelItem => item.Location) By @Html.DisplayFor(modelItem => item.Builder)
+        </td>
+
+        <td>
+            @Html.DisplayNameFor(model => model.BedRooms): @Html.DisplayFor(modelItem => item.BedRooms)<br />
+            @Html.DisplayNameFor(model => model.BathRooms): @Html.DisplayFor(modelItem => item.BathRooms)<br />
+            @Html.DisplayNameFor(model => model.Balconies): @Html.DisplayFor(modelItem => item.Balconies)<br />
+            @Html.DisplayNameFor(model => model.StoreRooms): @Html.DisplayFor(modelItem => item.StoreRooms)
+        </td>
+        <td>
+            Super: @Html.DisplayFor(modelItem => item.SuperArea)<br />
+            Carpet: @Html.DisplayFor(modelItem => item.CarpetArea)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.FaceSide): @Html.DisplayFor(modelItem => item.FaceSide)<br />
+            @Html.DisplayNameFor(model => model.Floor): @Html.DisplayFor(modelItem => item.Floor)<br />
+            @Html.DisplayNameFor(model => model.CarParking): @Html.DisplayFor(modelItem => item.CarParking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Possession)
+        </td>
+        
+        <td>
+            @Html.DisplayNameFor(model => model.TotalBuilding): @Html.DisplayFor(modelItem => item.TotalBuilding)<br />
+            @Html.DisplayNameFor(model => model.LiftinEachBuilding): @Html.DisplayFor(modelItem => item.LiftinEachBuilding)<br />
+            @Html.DisplayNameFor(model => model.TotalFlatinProject): @Html.DisplayFor(modelItem => item.TotalFlatinProject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Budget)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate, "dd-MMM-yyyy")
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "PropertyEdit", new { id = item.PropertyID }, new { @class = "btn btn-default" })<br />
+            @Html.ActionLink("Upload Image", "UploadImages", new { id = item.PropertyID }, new { @class = "btn btn-default" }) 
+            @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>
